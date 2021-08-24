@@ -4,13 +4,18 @@
 # --------------------------------------------------------------#
 # Muhammed Salman Shamsi <muhammed-salman@users.noreply.github.com>
 
-# Step 1:
-# Put this file in your local repo, in the .git/hooks folder 
-#                       or 
-# place it another folder in your repo if you want to commit it & create a symlink like `ln -s ../../prepare-commit-msg.sh .git/hooks/prepare-commit-msg`
-# Step 2:
-# Make sure it is executable. `chmod +x .git/hooks/prepare-commit-msg`
+# Step 1:                    
+# Create a symlink like from your project root like 
+# `ln -s -f ../../git-hooks/prepare-commit-msg.sh .git/hooks/prepare-commit-msg`
 # The name of the file *must* be "prepare-commit-msg" for Git to pick it up.
+
+# OR for git >= 2.9 you can use git config core.hooksPath git-hooks
+
+# Step 2:
+# Make sure it is executable. `chmod +x .git-hooks/prepare-commit-msg.sh`
+
+# Step 3:
+# Disable Fast Forward Merges : `git config branch.master.mergeoptions "--no-ff"`
 
 RESTRICTED_BRANCHES=("staging")
 
